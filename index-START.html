@@ -64,30 +64,31 @@
     </style>
 
     <script>
-      let {
-        currentHour,
-        currentMinutes,
-        currentSeconds
-      } = (function getCurrenttime() {
-        var today = new Date();
-        var currentHour = today.getHours();
-        var currentMinutes = today.getMinutes();
-        var currentSeconds = today.getSeconds();
-        return { currentHour, currentMinutes, currentSeconds };
-      })();
-
       setInterval(() => {
-        var hourHand = document.querySelector('.hand.hour-hand');
-        var minuteHand = document.querySelector('.hand.min-hand');
-        var secondsHand = document.querySelector('.hand.min-hand');
-        
+        let {
+          currentHour,
+          currentMinutes,
+          currentSeconds
+        } = (function getCurrenttime() {
+          var today = new Date();
+          var currentHour = today.getHours();
+          var currentMinutes = today.getMinutes();
+          var currentSeconds = today.getSeconds();
+          return { currentHour, currentMinutes, currentSeconds };
+        })();
+
+        var hourHand = document.querySelector(".hand.hour-hand");
+        var minuteHand = document.querySelector(".hand.min-hand");
+        var secondsHand = document.querySelector(".hand.second-hand");
+
         hourRotation = 90 + currentHour * 30;
         minuteRotation = 90 + currentMinutes * 6;
-        minuteRotation = 90 + currentSeconds * 6;
-        hourHand.style.transform = 'rotate(' + hourRotation + 'deg)';
-        minuteHand.style.transform = 'rotate(' + minuteRotation + 'deg)';
-        secondsHand.style.transform = 'rotate(' + minuteRotation + 'deg)';
-      }, 1000);
+        secondsRotation = 90 + currentSeconds * 6;
+
+        hourHand.style.transform = "rotate(" + hourRotation + "deg)";
+        minuteHand.style.transform = "rotate(" + minuteRotation + "deg)";
+        secondsHand.style.transform = "rotate(" + secondsRotation + "deg)";
+      }, 100);
     </script>
   </body>
 </html>
