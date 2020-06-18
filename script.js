@@ -13,7 +13,7 @@ const displayTime = function(){
         currentHour = today.getHours();
         currentMinutes = today.getMinutes();
         currentSeconds = today.getSeconds();
-        
+
         hourRotation = 90 + currentHour * 30;
         minuteRotation = 90 + currentMinutes * 6;
         secondsRotation = 90 + currentSeconds * 6;
@@ -24,6 +24,6 @@ const displayTime = function(){
     }
     setInterval(() => {
         getCurrenttime()
-    }, 100);
+    }, 1000);
 }
 displayTime()
